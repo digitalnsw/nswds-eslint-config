@@ -1,0 +1,71 @@
+{
+  "name": "@nswds/eslint-config",
+  "version": "0.0.0",
+  "description": "Shared ESLint flat config for the NSW Design System fleet (Next.js + Prettier).",
+  "license": "ISC",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "eslint-config",
+    "flat-config",
+    "nextjs",
+    "prettier",
+    "nswds",
+    "nsw-government"
+  ],
+  "homepage": "https://github.com/digitalnsw/nswds-eslint-config#readme",
+  "bugs": {
+    "url": "https://github.com/digitalnsw/nswds-eslint-config/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/digitalnsw/nswds-eslint-config.git"
+  },
+  "author": "NSW Design System",
+  "type": "module",
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs"
+  },
+  "files": [
+    "index.mjs"
+  ],
+  "engines": {
+    "node": "^22.14.0 || >=24.10.0"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release",
+    "test": "node --test"
+  },
+  "peerDependencies": {
+    "@eslint/compat": ">=1.2",
+    "eslint": ">=9",
+    "eslint-config-next": ">=15",
+    "eslint-config-prettier": ">=10",
+    "eslint-plugin-prettier": ">=5"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.1.0",
+    "eslint": "^10.0.0",
+    "eslint-config-next": "^16.2.11",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "next": "^16.2.11",
+    "prettier": "^3.5.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.8.3",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^12.0.3",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "conventional-changelog-conventionalcommits": "^9.3.1",
+    "semantic-release": "^25.0.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
