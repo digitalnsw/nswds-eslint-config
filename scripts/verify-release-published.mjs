@@ -62,7 +62,17 @@ for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
     lastError = ''
   } catch (error) {
     // Could be propagation lag, so retry — but keep the reason for the final report.
-    lastError = (error.stderr || error.message || String(error)).trim().split('\n')[0]
+    //
+    // `||`, not `??`: a command can fail without writing to stderr at all, leaving it
+    // an empty string. `??` only falls through on nullish, so it would keep that empty
+    // string and discard the more useful error.message.
+    //
+    // String() because `||` selects a Buffer when one is present — Buffers are truthy —
+    // and run() only yields a string stderr because it sets `encoding`. Wrapping keeps
+    // this line correct even if that setting is ever dropped.
+    lastError = String(error.stderr || error.message || error)
+      .trim()
+      .split('\n')[0]
   }
   // Only overwrite on a real reading — a failed retry must not erase a version we
   // already observed, or the final report claims "unavailable" when it is not.
