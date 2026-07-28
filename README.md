@@ -74,3 +74,20 @@ Remove the wrapper once `eslint-config-next` ships an ESLint-10-compatible
 Released by [semantic-release](https://semantic-release.gitbook.io/) on merge to
 `main`, driven by Conventional Commit messages. Publishing to npm uses **OIDC
 trusted publishing**, so there is no `NPM_TOKEN` secret in this repo.
+
+## Shared tooling
+
+This repo is on the [nswds-devops](https://github.com/digitalnsw/nswds-devops)
+file sync (**group 2c**), so these are owned centrally — edit them there, not
+here, or the next sync will overwrite your change:
+
+- `scripts/` (except `verify-release-published.mjs`, which is this repo's own)
+- `commitlint.config.mjs`, `commit-types.mjs`, `git-conventional-commits.yaml`
+- `.nvmrc`, `.npmrc`, `renovate.json`
+- every workflow except `ci.yml` and `release.yml`
+
+Group 2c exists because `release.yml` is bespoke: it carries `id-token: write`
+for OIDC publishing and runs `scripts/verify-release-published.mjs` afterwards,
+which fails the job if npm does not match the newest `v*` tag. The stock stub
+would replace it and silently disable both — which is why this repo is not in
+group 1 or 3.
