@@ -2,6 +2,11 @@ name: Release
 on:
   push:
     branches: [main]
+  # Manual re-run handle. semantic-release verifies push and npm auth on every
+  # run, so dispatching with no releasable commits proves the credentials still
+  # work — notably the RELEASE_DEPLOY_KEY push path — without cutting a version.
+  # Also the way to recover a run that died after the tag but before publish.
+  workflow_dispatch:
 
 # One release at a time: two quick merges to main must not run semantic-release
 # concurrently (version-bump/publish race). Queued, never cancelled.
