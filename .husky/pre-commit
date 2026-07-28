@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+# Block commits that add unresolved merge conflict markers. Mirrors the CI check
+# in nswds-devops' reusable-ci.yml — this is the fast local signal, CI is the
+# enforced gate. GitHub's web "Resolve conflicts" editor never runs local hooks,
+# which is why the CI check has to exist independently of this one.
+#
+# NOTE: the other hooks here are copies of the synced scripts/husky/. This one
+# is repo-local until it is added upstream; see the note in the PR.
+if git diff --cached | grep -nE '^\+(<{7}|>{7}) '; then
+  echo "✖ Unresolved merge conflict markers in staged changes." >&2
+  exit 1
+fi
