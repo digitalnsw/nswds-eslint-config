@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.0.1...v1.0.2) (2026-07-28)
+
+### Bug Fixes
+
+* **release:** stop declaring @semantic-release/npm directly ([c361b7f](https://github.com/digitalnsw/nswds-eslint-config/commit/c361b7fd094e21acd7beab1c4099ff5ded3cc87a))
+* **release:** use || not ?? in the error fallback ([3840bd8](https://github.com/digitalnsw/nswds-eslint-config/commit/3840bd8842b1ee6be6bf40e6669b6741787ae21b))
+
 ## [1.0.1](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.0.0...v1.0.1) (2026-07-28)
 
 ### Bug Fixes
