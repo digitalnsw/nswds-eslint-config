@@ -43,7 +43,9 @@
     "commit": "scripts/git-commit.sh",
     "pr": "scripts/pull-request.sh",
     "snyk:check": "bash -lc 'npm exec --yes --package snyk@latest -- snyk test --all-projects --json-file-output=snyk-analysis.json; code=$?; if [ $code -eq 0 ] || [ $code -eq 1 ]; then exit 0; fi; exit $code'",
-    "snyk:monitor": "npm exec --yes --package snyk@latest -- snyk monitor --all-projects"
+    "snyk:monitor": "npm exec --yes --package snyk@latest -- snyk monitor --all-projects",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "peerDependencies": {
     "@eslint/compat": ">=1.2",
@@ -56,6 +58,7 @@
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/compat": "^2.1.0",
+    "@nswds/prettier-config": "^1.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -78,5 +81,6 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  }
+  },
+  "prettier": "@nswds/prettier-config"
 }
