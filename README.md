@@ -2,15 +2,33 @@
 
 Shared ESLint **flat** config for the NSW Design System fleet — the single
 source of truth for what was previously a hand-maintained `eslint.config.mjs` in
-every repo. Next.js `core-web-vitals` + `typescript`, with Prettier enforced as
-an ESLint rule and `no-console` restricted to `warn`/`error`.
+every repo. Two entry points, both with Prettier enforced as an ESLint rule and
+`no-console` restricted to `warn`/`error`:
+
+- **`.`** — Next.js apps: `core-web-vitals` + `typescript`.
+- **`./base`** — everything else (token pipelines, IaC programs, node scripts,
+  plain sites): `@eslint/js` recommended + `typescript-eslint` recommended.
+  Exists so non-Next repos get fleet lint policy without the Next.js peer
+  chain, instead of maintaining bespoke configs.
 
 ## Install
+
+Next.js repos:
 
 ```bash
 npm i -D @nswds/eslint-config eslint eslint-config-next \
   eslint-config-prettier eslint-plugin-prettier @eslint/compat
 ```
+
+Non-Next repos (`./base`):
+
+```bash
+npm i -D @nswds/eslint-config eslint @eslint/js typescript-eslint \
+  eslint-config-prettier eslint-plugin-prettier @eslint/compat
+```
+
+`eslint-config-next`, `@eslint/js` and `typescript-eslint` are optional peers —
+install the set that matches the entry point you use.
 
 ## Use
 
@@ -30,6 +48,15 @@ export default defineConfig([
 ```
 
 A repo with nothing extra just does `export default [...nswds]`.
+
+Non-Next repos import the base entry point the same way:
+
+```js
+// eslint.config.mjs
+import nswds from '@nswds/eslint-config/base'
+
+export default nswds
+```
 
 ### Per-repo rule overrides
 
@@ -55,9 +82,11 @@ lint run dies with:
 TypeError: contextOrFilename.getFilename is not a function
 ```
 
-before checking a single file. The wrapper is a **no-op on ESLint 9**, so the
-same version works across the fleet mid-upgrade. `index.test.mjs` lints a JSX
-file on every CI run to keep this regression from returning.
+before checking a single file. On ESLint 9 the accessors the shim re-attaches
+still exist, so the wrapper changes nothing there — but note the fleet develops
+and tests against ESLint 10 only; ESLint 9 is accepted by the peer range and
+not exercised in CI. `index.test.mjs` lints a JSX file on every CI run to keep
+this regression from returning.
 
 Remove the wrapper once `eslint-config-next` ships an ESLint-10-compatible
 `eslint-plugin-react` — watch [vercel/next.js#89764](https://github.com/vercel/next.js/issues/89764).

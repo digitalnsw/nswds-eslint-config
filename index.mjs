@@ -4,25 +4,14 @@ import { fixupConfigRules } from '@eslint/compat'
 import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
 
-import eslintConfigPrettier from 'eslint-config-prettier/flat'
-import eslintPluginPrettier from 'eslint-plugin-prettier'
+import { baseIgnores, prettierTail } from './shared.mjs'
 
-// The default ignore set. Consumers that need extra ignores should NOT edit
-// this — they add their own `globalIgnores([...])` after spreading the config.
-export const baseIgnores = [
-  // Default ignores of eslint-config-next:
-  '.next/**',
-  'out/**',
-  'build/**',
-  'next-env.d.ts',
-  'node_modules/**',
-  '**/dist/**',
-  // Fleet additions:
-  '.github/workflows/**',
-]
+// Re-exported for consumers that extend the ignore list (public API).
+export { baseIgnores }
 
-// The shared base config: Next.js core-web-vitals + TypeScript, with Prettier
+// The shared Next.js config: core-web-vitals + TypeScript, with Prettier
 // enforced as an ESLint rule and console output restricted to warn/error.
+// Non-Next repos use the './base' entry point instead.
 //
 // The eslint-config-next presets are wrapped in `fixupConfigRules` because
 // ESLint 10 removed `context.getFilename()`, which eslint-plugin-react (pulled
@@ -35,16 +24,7 @@ export const baseIgnores = [
 const nswdsEslintConfig = defineConfig([
   ...fixupConfigRules(nextVitals),
   ...fixupConfigRules(nextTs),
-  eslintConfigPrettier,
-  {
-    plugins: {
-      prettier: eslintPluginPrettier,
-    },
-    rules: {
-      'prettier/prettier': 'error',
-      'no-console': ['error', { allow: ['warn', 'error'] }],
-    },
-  },
+  ...prettierTail,
   globalIgnores(baseIgnores),
 ])
 

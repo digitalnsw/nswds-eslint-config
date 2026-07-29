@@ -1,7 +1,7 @@
 {
   "name": "@nswds/eslint-config",
   "version": "1.0.2",
-  "description": "Shared ESLint flat config for the NSW Design System fleet (Next.js + Prettier).",
+  "description": "Shared ESLint flat config for the NSW Design System fleet — Next.js ('.') and framework-free ('./base') entry points, both with Prettier as a rule.",
   "license": "MPL-2.0",
   "keywords": [
     "eslint",
@@ -25,10 +25,13 @@
   "type": "module",
   "main": "index.mjs",
   "exports": {
-    ".": "./index.mjs"
+    ".": "./index.mjs",
+    "./base": "./base.mjs"
   },
   "files": [
-    "index.mjs"
+    "index.mjs",
+    "base.mjs",
+    "shared.mjs"
   ],
   "engines": {
     "node": "^22.22.2 || >=24.15.0"
@@ -49,16 +52,36 @@
     "format:check": "prettier --check ."
   },
   "peerDependencies": {
-    "@eslint/compat": ">=1.2",
+    "@eslint/compat": ">=2",
+    "@eslint/js": ">=9",
     "eslint": ">=9",
     "eslint-config-next": ">=15",
     "eslint-config-prettier": ">=10",
-    "eslint-plugin-prettier": ">=5"
+    "eslint-plugin-prettier": ">=5",
+    "typescript-eslint": ">=8.28"
+  },
+  "peerDependenciesMeta": {
+    "@eslint/compat": {
+      "optional": false
+    },
+    "@eslint/js": {
+      "optional": true
+    },
+    "eslint-config-next": {
+      "optional": true
+    },
+    "typescript-eslint": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "globals": "^16.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
     "@eslint/compat": "^2.1.0",
+    "@eslint/js": "^10.0.1",
     "@nswds/prettier-config": "^1.0.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^13.0.1",
@@ -76,7 +99,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "semantic-release": "^25.0.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.65.0"
   },
   "publishConfig": {
     "access": "public",
