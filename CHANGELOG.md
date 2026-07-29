@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.0.2...v1.1.0) (2026-07-29)
+
+### Features
+
+* **config:** add a framework-free ./base entry point ([cc7d0ab](https://github.com/digitalnsw/nswds-eslint-config/commit/cc7d0ab2042b6a7211c6ee009d849de47926e035))
+
 ## [1.0.2](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.0.1...v1.0.2) (2026-07-28)
 
 ### Bug Fixes
