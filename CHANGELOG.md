@@ -1,3 +1,9 @@
+## [1.1.1](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.0...v1.1.1) (2026-08-03)
+
+### Bug Fixes
+
+* **security:** path-scope the nanoid ignores and correct the 5.1.16 rationale ([4708814](https://github.com/digitalnsw/nswds-eslint-config/commit/47088142d5cb6d12cb7a04f10279497a01264b54))
+
 ## [1.1.0](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.0.2...v1.1.0) (2026-07-29)
 
 ### Features
