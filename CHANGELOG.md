@@ -1,3 +1,9 @@
+## [1.1.2](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.1...v1.1.2) (2026-08-04)
+
+### Bug Fixes
+
+* **deps:** update dependency globals to v17 ([#27](https://github.com/digitalnsw/nswds-eslint-config/issues/27)) ([93c57d6](https://github.com/digitalnsw/nswds-eslint-config/commit/93c57d6ecf0566df3e574492478c8a6c3cd7b146))
+
 ## [1.1.1](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.0...v1.1.1) (2026-08-03)
 
 ### Bug Fixes
