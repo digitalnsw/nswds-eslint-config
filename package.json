@@ -75,7 +75,7 @@
     }
   },
   "dependencies": {
-    "globals": "^16.4.0"
+    "globals": "^17.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.0.2",
