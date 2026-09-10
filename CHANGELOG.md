@@ -1,3 +1,9 @@
+## [1.1.3](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.2...v1.1.3) (2026-09-10)
+
+### Bug Fixes
+
+* **release:** require a colon before a breaking-change footer ([#53](https://github.com/digitalnsw/nswds-eslint-config/issues/53)) ([587502d](https://github.com/digitalnsw/nswds-eslint-config/commit/587502d75107d6c13848775e3fe2f2bdcce72fc7)), closes [digitalnsw/nswds-devops#129](https://github.com/digitalnsw/nswds-devops/issues/129)
+
 ## [1.1.2](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.1...v1.1.2) (2026-08-04)
 
 ### Bug Fixes
