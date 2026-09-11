@@ -1,3 +1,9 @@
+## [1.1.4](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.3...v1.1.4) (2026-09-11)
+
+### Bug Fixes
+
+* **release:** honour the spec's hyphenated breaking-change footer ([#54](https://github.com/digitalnsw/nswds-eslint-config/issues/54)) ([4710d57](https://github.com/digitalnsw/nswds-eslint-config/commit/4710d57e39b2e46afd83ff8ceb2236ebd99c6aa6))
+
 ## [1.1.3](https://github.com/digitalnsw/nswds-eslint-config/compare/v1.1.2...v1.1.3) (2026-09-10)
 
 ### Bug Fixes
